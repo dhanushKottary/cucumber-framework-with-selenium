@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import driver.driverManager.CreateDriver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -17,20 +18,23 @@ public class Hook {
 	
 	
 	
-   public static WebDriver driver;
+   public WebDriver driver;
 	
 	@Before
 	public void launchDriverInstance(Scenario scenario) throws IOException {
+//		String browser = getBrowser();
+//		switch(browser){
+//		   case "chrome": 
+//			   driver = new ChromeDriver();
+//			   break;
+//		   case "firefox": 
+//			   driver = new FirefoxDriver();
+//			   break;	   
+//		}
 		String browser = getBrowser();
-		switch(browser){
-		   case "chrome": 
-			   driver = new ChromeDriver();
-			   break;
-		   case "firefox": 
-			   driver = new FirefoxDriver();
-			   break;	   
-		}
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+		CreateDriver.getInstance().setDriver(browser);
+		driver = CreateDriver.getInstance().getDriver();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 	
 	@After

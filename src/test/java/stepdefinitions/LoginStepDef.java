@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import driver.driverManager.CreateDriver;
 import hook.Hook;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
@@ -16,16 +17,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 
-import static hook.Hook.driver;
+//import hook.Hook.driver;
 
 public class LoginStepDef{
 	
-//	private WebDriver driver;
-//	
-//	public LoginStepDef() {
-//		driver = new ChromeDriver();
-//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-//	}
+	private WebDriver driver;
+	
+	public LoginStepDef() {
+		driver = CreateDriver.getInstance().getDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+	}
 	
 	private LoginPage loginPage;
 	
