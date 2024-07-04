@@ -6,7 +6,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class CreateDriver {
 	
-	private WebDriver driver;
+	//private  WebDriver driver;
+	private ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
 	
 	private static CreateDriver instance;
 	
@@ -14,7 +15,7 @@ public class CreateDriver {
 		
 	}
 	
-	public static CreateDriver getInstance() {
+	public static synchronized CreateDriver getInstance() {
 		if(instance == null) {
 			instance = new CreateDriver();
 		}
@@ -22,11 +23,13 @@ public class CreateDriver {
 	}
 	
 	public void setDriver(String browser) {
-		driver = DriverManager.getBrowserManager(browser).getDriver();
+		//driver = DriverManager.getBrowserManager(browser).getDriver();
+		driver.set(DriverManager.getBrowserManager(browser).getDriver());
 	}
 	
 	public WebDriver getDriver() {
-		return driver;
+		//return driver;
+		return driver.get();
 	}
 
 }

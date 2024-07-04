@@ -8,9 +8,9 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-	features = "src/test/resources/features",
+	features = {"src/test/resources/features", "src/test/resources/featuresParallelExecUsingJUnit"},
 	glue = {"stepdefinitions", "hook"},
-	tags = "@Important or @Invalid",
+	tags = "@parallelUsingJUnit",
 	plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 )
 public class UITestRunner {

@@ -1,0 +1,4 @@
+1. In JUnit, Only feature files can be run in parallel and not the scenarios in the feature file.
+2. ThreadLocal is used to declare "driver" to make it thread safe.
+3. feature files in the directory "featuresParallelExecUsingJUnit" are used to run in parallel and tag used is "@parallelUsingJUnit".
+4. Maven surefire plugin is used to run feature files in parallel.
