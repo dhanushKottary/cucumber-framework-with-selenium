@@ -2,3 +2,7 @@
 2. ThreadLocal is used to declare "driver" to make it thread safe.
 3. feature files in the directory "featuresParallelExecUsingJUnit" are used to run in parallel and tag used is "@parallelUsingJUnit".
 4. Maven surefire plugin is used to run feature files in parallel.
+
+For parallel execution in testNG
+1. The default thread count for 'UITestRunnerTestNG" is 10.
+2. The thread count in testNG.xml is given as 'data-provider-thread-count="3"' at suite level

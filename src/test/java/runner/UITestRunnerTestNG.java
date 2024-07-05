@@ -18,13 +18,13 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 	features = {"src/test/resources"},
 	glue = {"stepdefinitions", "hook"},
-	tags = "@SampleURL",
+	tags = "@testNGParallel",
 	plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
 )
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
 	
 	
-	@DataProvider(parallel=false)
+	@DataProvider(parallel=true)
 	@Override
 	public Object[][] scenarios(){
 		return super.scenarios();
@@ -44,7 +44,7 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
     @BeforeClass
     public void beforeClass(ITestContext context) {
         System.out.println("before class");
-        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
+        //context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
     }
 
 
@@ -56,7 +56,7 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
     @BeforeTest
     public void beforeTest(ITestContext context) {
         System.out.println("before test");
-        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
+        //context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
     }
 
 
