@@ -19,7 +19,8 @@ Scenario: Launch browserStack
   
 @TestNG @testNGParallel
 Scenario: Launch linkedin
-  Given User has launched the login URL "https://www.linkedin.com"    
+  Given User has launched the login URL "https://www.linkedin.com"   
+  #Then Error message "Username and password do not match any user in this service" is displayed 
   
   
 

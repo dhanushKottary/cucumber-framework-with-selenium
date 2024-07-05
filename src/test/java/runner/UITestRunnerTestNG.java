@@ -19,7 +19,7 @@ import io.cucumber.testng.CucumberOptions;
 	features = {"src/test/resources"},
 	glue = {"stepdefinitions", "hook"},
 	tags = "@testNGParallel",
-	plugin = "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"
+	plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "rerun:target/failed.txt"}
 )
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
 	
