@@ -2,6 +2,7 @@ package runner;
 
 
 
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -10,6 +11,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+
+import io.cucumber.java.AfterStep;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -22,7 +25,7 @@ import io.cucumber.testng.CucumberOptions;
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
 	
 	
-	@DataProvider(parallel=true)
+	@DataProvider(parallel=false)
 	@Override
 	public Object[][] scenarios(){
 		return super.scenarios();
@@ -62,6 +65,13 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
     public void afterTest() {
         System.out.println("after test");
     }
+    
+    
+
+    
+
+    
+    
     
     
 }
