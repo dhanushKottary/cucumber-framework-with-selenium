@@ -2,7 +2,6 @@ package runner;
 
 
 
-
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -11,7 +10,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
-
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
@@ -65,8 +63,5 @@ public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
         System.out.println("after test");
     }
     
-
-	
-	
-
+    
 }
