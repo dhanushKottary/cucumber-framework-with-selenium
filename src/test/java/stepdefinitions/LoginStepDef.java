@@ -9,6 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import dependencyinjection.Context;
 import driver.driverManager.CreateDriver;
 import hook.Hook;
 import io.cucumber.datatable.DataTable;
@@ -22,9 +23,11 @@ import pages.LoginPage;
 public class LoginStepDef{
 	
 	private WebDriver driver;
+	private Context context;
 	
-	public LoginStepDef() {
+	public LoginStepDef(Context context) {
 		driver = CreateDriver.getInstance().getDriver();
+		this.context = context;
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 	}
 	

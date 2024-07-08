@@ -19,13 +19,13 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 	features = {"src/test/resources"},
 	glue = {"stepdefinitions", "hook"},
-	tags = "@testNGParallel",
+	tags = "@DependencyInjection or @Login",
 	plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "rerun:target/failed.txt"}
 )
 public class UITestRunnerTestNG extends AbstractTestNGCucumberTests{
 	
 	
-	@DataProvider(parallel=false)
+	@DataProvider(parallel=true)
 	@Override
 	public Object[][] scenarios(){
 		return super.scenarios();

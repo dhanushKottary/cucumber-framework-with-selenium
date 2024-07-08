@@ -49,14 +49,12 @@ public class Hook {
 	
     @AfterStep
     public void afterStep(Scenario scenario) {
-    	if(scenario.isFailed()) {
        	 TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
        	 byte[] screenshot = takesScreenshot.getScreenshotAs(OutputType.BYTES);
    	    LocalDateTime myDateObj = LocalDateTime.now();
    	    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy");
    	    String imageName = "image-"+myDateObj.format(myFormatObj);
        	scenario.attach(screenshot, "image/png", imageName);
-    	}
 
     	 
     }
